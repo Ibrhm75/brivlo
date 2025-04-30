@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'dart:math';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class GreetingSection extends StatefulWidget {
   const GreetingSection({Key? key}) : super(key: key);
@@ -10,7 +10,8 @@ class GreetingSection extends StatefulWidget {
 }
 
 class _GreetingSectionState extends State<GreetingSection> {
-  late final String quote;
+  String quote = "";
+  String nickname = "";
 
   final List<String> quotes = [
     "You’ve got this. Coffee helps, but so do you.",
@@ -24,6 +25,14 @@ class _GreetingSectionState extends State<GreetingSection> {
   void initState() {
     super.initState();
     quote = (quotes..shuffle()).first;
+    _loadNickname();
+  }
+
+  Future<void> _loadNickname() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      nickname = prefs.getString('nickname') ?? 'friend';
+    });
   }
 
   @override
@@ -45,7 +54,7 @@ class _GreetingSectionState extends State<GreetingSection> {
             : 'Good Afternoon';
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 16.0),
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(24),
@@ -60,19 +69,19 @@ class _GreetingSectionState extends State<GreetingSection> {
             end: Alignment.bottomRight,
           ),
           borderRadius: BorderRadius.circular(24),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.black12,
               blurRadius: 16,
-              offset: const Offset(0, 6),
+              offset: Offset(0, 6),
             )
           ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Emoji with gentle shimmer
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
                   greetingEmoji,
@@ -82,22 +91,35 @@ class _GreetingSectionState extends State<GreetingSection> {
                     .shimmer(duration: 3.seconds)
                     .fadeIn(duration: 1200.ms),
                 const SizedBox(width: 12),
-                Text(
-                  '$greetingText, Bob!',
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black87,
-                  ),
-                )
-                    .animate()
-                    .fadeIn(delay: 400.ms, duration: 1000.ms)
-                    .slideY(begin: 0.3, curve: Curves.easeOutCubic),
+                Column(
+                  children: [
+                    Text(
+                      '$greetingText, ',
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black87,
+                      ),
+                    )
+                        .animate()
+                        .fadeIn(delay: 400.ms, duration: 1000.ms)
+                        .slideY(begin: 0.3, curve: Curves.easeOutCubic),
+                    Text(
+                      '${nickname.isEmpty ? 'friend' : nickname}!',
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black87,
+                      ),
+                    )
+                        .animate()
+                        .fadeIn(delay: 400.ms, duration: 1000.ms)
+                        .slideY(begin: 0.3, curve: Curves.easeOutCubic),
+                  ],
+                ),
               ],
             ),
-
             const SizedBox(height: 16),
-
             Text(
               '“$quote”',
               style: const TextStyle(

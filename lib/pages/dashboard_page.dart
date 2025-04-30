@@ -1,25 +1,25 @@
+import 'package:brivlo/components/fade_appbar_layout.dart';
 import 'package:brivlo/sections/greeting_section.dart';
 import 'package:brivlo/sections/weather_section.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: FadeAppBarLayout(
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const GreetingSection(),
                 const SizedBox(height: 16),
-                _weatherSection(),
-                // const WeatherSection(),
+                // _weatherSection(),
+                const WeatherSection(),
                 const SizedBox(height: 16),
                 _checklistPreview(),
                 const SizedBox(height: 16),
@@ -34,16 +34,6 @@ class DashboardPage extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  Widget _weatherSection() {
-    return const Row(
-      children: [
-        Icon(Icons.cloud, size: 32),
-        SizedBox(width: 12),
-        Text('72°F – Showers expected'),
-      ],
     );
   }
 
