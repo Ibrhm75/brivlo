@@ -29,14 +29,14 @@ class _HomePageState extends State<HomePage> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: Container(
-        color: Colors.black,
+        color: Theme.of(context).colorScheme.background,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
           child: GNav(
-            backgroundColor: Colors.black,
-            color: Colors.white,
-            activeColor: Colors.white,
-            tabBackgroundColor: Colors.grey.shade800,
+            backgroundColor: Theme.of(context).colorScheme.background,
+            color: Colors.grey.shade500,
+            activeColor: Theme.of(context).colorScheme.primary,
+            tabBackgroundColor: Colors.grey.shade200,
             gap: 8,
             padding: const EdgeInsets.all(16),
             tabs: const [

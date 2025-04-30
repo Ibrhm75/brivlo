@@ -16,7 +16,7 @@ class SettingsPage extends StatelessWidget {
           'Settings',
           style: TextStyle(fontSize: 24),
         ),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: Column(
         children: [

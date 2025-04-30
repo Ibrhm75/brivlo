@@ -37,6 +37,16 @@ dependencies:
   cupertino_icons: ^1.0.6
   google_nav_bar: ^5.0.7
   provider: ^6.1.5
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/BrivloLogo.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/images/BrivloLogo.png"
 
 dev_dependencies:
   flutter_test:
