@@ -1,4 +1,7 @@
+import 'package:brivlo/sections/greeting_section.dart';
+import 'package:brivlo/sections/weather_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -13,9 +16,10 @@ class DashboardPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _greetingSection(),
+                const GreetingSection(),
                 const SizedBox(height: 16),
                 _weatherSection(),
+                // const WeatherSection(),
                 const SizedBox(height: 16),
                 _checklistPreview(),
                 const SizedBox(height: 16),
@@ -30,23 +34,6 @@ class DashboardPage extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  Widget _greetingSection() {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Good Morning, Bob! ☀️',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-        SizedBox(height: 4),
-        Text(
-          '"You’ve got this. Coffee helps, but so do you."',
-          style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
-        ),
-      ],
     );
   }
 
