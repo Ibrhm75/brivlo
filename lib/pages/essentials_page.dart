@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class EssentialsPage extends StatelessWidget {
-  const EssentialsPage({Key? key}) : super(key: key);
+  const EssentialsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
