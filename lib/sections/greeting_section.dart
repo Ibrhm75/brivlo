@@ -19,6 +19,12 @@ class _GreetingSectionState extends State<GreetingSection> {
     "Sun’s out. Smile’s out. Let’s do this.",
     "Your checklist is trembling. You’re about to conquer it.",
     "Stay strong. Stay curious. Stay caffeinated.",
+    "You’re a rockstar. Now go and rock it.",
+    "Today is a new opportunity. Make it count.",
+    "Believe in yourself and all that you are.",
+    "Success is not the key to happiness. Happiness is the key to success.",
+    "The only way to do great work is to love what you do.",
+    "Your limitation—it's only your imagination",
   ];
 
   @override
@@ -63,8 +69,8 @@ class _GreetingSectionState extends State<GreetingSection> {
             colors: isMorning
                 ? [Colors.orange.shade100, Colors.pink.shade100]
                 : isEvening
-                    ? [Colors.indigo.shade300, Colors.deepPurple.shade100]
-                    : [Colors.blue.shade200, Colors.cyan.shade100],
+                    ? [Colors.blue.shade800, Colors.deepPurple.shade700]
+                    : [Colors.green.shade400, Colors.cyan.shade100],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -83,20 +89,20 @@ class _GreetingSectionState extends State<GreetingSection> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text(
-                  greetingEmoji,
-                  style: const TextStyle(fontSize: 40),
-                )
-                    .animate()
-                    .shimmer(duration: 3.seconds)
-                    .fadeIn(duration: 1200.ms),
-                const SizedBox(width: 12),
+                // Text(
+                //   greetingEmoji,
+                //   style: const TextStyle(fontSize: 40),
+                // )
+                //     .animate()
+                //     .shimmer(duration: 3.seconds)
+                //     .fadeIn(duration: 1200.ms),
+                // const SizedBox(width: 12),
                 Column(
                   children: [
                     Text(
                       '$greetingText, ',
                       style: const TextStyle(
-                        fontSize: 22,
+                        fontSize: 30,
                         fontWeight: FontWeight.w600,
                         color: Colors.black87,
                       ),
@@ -107,7 +113,7 @@ class _GreetingSectionState extends State<GreetingSection> {
                     Text(
                       '${nickname.isEmpty ? 'friend' : nickname}!',
                       style: const TextStyle(
-                        fontSize: 22,
+                        fontSize: 26,
                         fontWeight: FontWeight.w600,
                         color: Colors.black87,
                       ),

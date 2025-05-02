@@ -9,16 +9,15 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: FadeAppBarLayout(
+      body: FadeAppBarLayout(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const GreetingSection(),
                 const SizedBox(height: 16),
-                // _weatherSection(),
                 const WeatherSection(),
                 const SizedBox(height: 16),
                 _checklistPreview(),

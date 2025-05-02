@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class FadeAppBarLayout extends StatelessWidget {
   final Widget child;
@@ -46,7 +47,16 @@ class FadeAppBarLayout extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
-                ),
+                )
+                    .animate()
+                    .fadeIn(
+                      duration: 1200.ms,
+                      curve: Curves.easeOut,
+                    )
+                    .slideY(
+                      begin: -0.2,
+                      curve: Curves.easeOut,
+                    ),
               ),
             ),
           ),
