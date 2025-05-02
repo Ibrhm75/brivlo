@@ -1,4 +1,5 @@
 import 'package:brivlo/components/fade_appbar_layout.dart';
+import 'package:brivlo/sections/checklist_section.dart';
 import 'package:brivlo/sections/greeting_section.dart';
 import 'package:brivlo/sections/weather_section.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,8 @@ class DashboardPage extends StatelessWidget {
                 const SizedBox(height: 16),
                 const WeatherSection(),
                 const SizedBox(height: 16),
-                _checklistPreview(),
+                // _checklistPreview(),
+                const ChecklistSection(),
                 const SizedBox(height: 16),
                 _tasksPreview(),
                 const SizedBox(height: 16),
