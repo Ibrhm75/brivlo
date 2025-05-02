@@ -3,7 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class GreetingSection extends StatefulWidget {
-  const GreetingSection({Key? key}) : super(key: key);
+  const GreetingSection({super.key});
 
   @override
   State<GreetingSection> createState() => _GreetingSectionState();
