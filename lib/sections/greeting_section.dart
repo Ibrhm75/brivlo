@@ -62,14 +62,14 @@ class _GreetingSectionState extends State<GreetingSection> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 16.0),
       child: Container(
-        width: double.infinity,
+        width: MediaQuery.sizeOf(context).width,
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: isMorning
                 ? [Colors.orange.shade100, Colors.pink.shade100]
                 : isEvening
-                    ? [Colors.blue.shade800, Colors.deepPurple.shade700]
+                    ? [Colors.blue.shade500, Colors.deepPurple.shade400]
                     : [Colors.green.shade400, Colors.cyan.shade100],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

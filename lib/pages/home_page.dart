@@ -1,5 +1,4 @@
 import 'package:brivlo/pages/dashboard_page.dart';
-import 'package:brivlo/pages/essentials_page.dart';
 import 'package:brivlo/pages/settings_page.dart';
 import 'package:brivlo/pages/todo_page.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +16,7 @@ class _HomePageState extends State<HomePage> {
 
   static final List<Widget> _widgetOptions = <Widget>[
     const DashboardPage(),
-    const EssentialsPage(),
-    const TodoPage(),
+    const ToDoPage(),
     const SettingsPage(),
   ];
 
@@ -43,10 +41,6 @@ class _HomePageState extends State<HomePage> {
               GButton(
                 icon: Icons.home,
                 text: 'Home',
-              ),
-              GButton(
-                icon: Icons.warning,
-                text: 'Essentials',
               ),
               GButton(
                 icon: Icons.done_all,

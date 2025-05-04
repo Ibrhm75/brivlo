@@ -32,6 +32,7 @@ class _SettingsPageState extends State<SettingsPage> {
     await prefs.setString('nickname', _nicknameController.text.trim());
     await prefs.setString('city', _cityController.text.trim());
 
+    // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Settings saved!')),
     );

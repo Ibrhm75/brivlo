@@ -3,7 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ChecklistSection extends StatefulWidget {
-  const ChecklistSection({Key? key}) : super(key: key);
+  const ChecklistSection({super.key});
 
   @override
   State<ChecklistSection> createState() => _ChecklistSectionState();
@@ -20,6 +20,8 @@ class _ChecklistSectionState extends State<ChecklistSection> {
     _loadChecklist();
   }
 
+  // Load the checklist from SharedPreferences
+  // This method is called when the widget is first created
   Future<void> _loadChecklist() async {
     final prefs = await SharedPreferences.getInstance();
     final savedItems = prefs.getStringList('checklist_items') ?? [];
@@ -31,6 +33,8 @@ class _ChecklistSectionState extends State<ChecklistSection> {
     });
   }
 
+  // Save the checklist to SharedPreferences
+  // This method is called whenever an item is added or removed
   Future<void> _saveChecklist() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setStringList('checklist_items', _items);
@@ -38,6 +42,8 @@ class _ChecklistSectionState extends State<ChecklistSection> {
         'checklist_checked', _checkedItems.map((e) => e.toString()).toList());
   }
 
+  // Add an item to the checklist
+  // This method is called when the user submits the text field or presses the add button
   void _addItem(String item) {
     if (item.trim().isEmpty) return;
     setState(() {
@@ -47,6 +53,8 @@ class _ChecklistSectionState extends State<ChecklistSection> {
     _saveChecklist();
   }
 
+  // Remove an item from the checklist
+  // This method is called when the user swipes an item to delete it
   void _removeItem(int index) {
     setState(() {
       _items.removeAt(index);
@@ -58,6 +66,8 @@ class _ChecklistSectionState extends State<ChecklistSection> {
     _saveChecklist();
   }
 
+  // Toggle the checked state of an item
+  // This method is called when the user taps on an item
   void _toggleItem(int index) {
     setState(() {
       _checkedItems.contains(index)
@@ -198,7 +208,7 @@ class _ChecklistSectionState extends State<ChecklistSection> {
                 ),
               ).animate().fadeIn(delay: (index * 80).ms).slideY(begin: 0.08),
             );
-          }).toList(),
+          }),
         ],
       ),
     );

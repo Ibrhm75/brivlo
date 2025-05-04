@@ -21,7 +21,6 @@ class DashboardPage extends StatelessWidget {
                 const SizedBox(height: 16),
                 const WeatherSection(),
                 const SizedBox(height: 16),
-                // _checklistPreview(),
                 const ChecklistSection(),
                 const SizedBox(height: 16),
                 _tasksPreview(),
@@ -35,24 +34,6 @@ class DashboardPage extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  Widget _checklistPreview() {
-    final checklist = ['Keys', 'Wallet', 'Phone'];
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text('Checklist',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
-        Wrap(
-          spacing: 8,
-          children: checklist
-              .map((item) =>
-                  Chip(label: Text(item), avatar: const Icon(Icons.check)))
-              .toList(),
-        ),
-      ],
     );
   }
 

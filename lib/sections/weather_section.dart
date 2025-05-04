@@ -36,6 +36,7 @@ class _WeatherSectionState extends State<WeatherSection> {
         _weather = weather;
       });
     } catch (e) {
+      // ignore: avoid_print
       print("Failed to fetch weather: $e");
     }
   }
@@ -95,7 +96,7 @@ class _WeatherSectionState extends State<WeatherSection> {
     }
 
     return Container(
-      width: double.infinity,
+      width: MediaQuery.sizeOf(context).width,
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -157,5 +158,3 @@ class _WeatherSectionState extends State<WeatherSection> {
     );
   }
 }
-
-
