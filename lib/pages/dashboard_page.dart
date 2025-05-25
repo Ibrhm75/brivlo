@@ -1,3 +1,4 @@
+import 'package:brivlo/components/custom_appbar.dart';
 import 'package:brivlo/sections/checklist_section.dart';
 import 'package:brivlo/sections/greeting_section.dart';
 import 'package:brivlo/sections/weather_section.dart';
@@ -8,12 +9,9 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Brivlo"),
-        centerTitle: true,
-      ),
-      body: const Padding(
+    return const Scaffold(
+      appBar: BrivloAppBar(),
+      body: Padding(
         padding: EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
