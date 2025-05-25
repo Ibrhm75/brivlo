@@ -1,5 +1,7 @@
+import 'package:brivlo/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ToDoPage extends StatefulWidget {
@@ -75,7 +77,9 @@ class _ToDoPageState extends State<ToDoPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your To-Do List"),
-        backgroundColor: primary,
+        backgroundColor: Provider.of<ThemeProvider>(context).isDarkMode
+            ? Colors.black
+            : Colors.blue,
         foregroundColor: Colors.white,
         elevation: 0,
       ),

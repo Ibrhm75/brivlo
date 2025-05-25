@@ -22,41 +22,43 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: Container(
-        color: Theme.of(context).colorScheme.background,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-          child: GNav(
-            backgroundColor: Theme.of(context).colorScheme.background,
-            color: Colors.grey.shade500,
-            activeColor: Theme.of(context).colorScheme.primary,
-            tabBackgroundColor: Colors.grey.shade200,
-            gap: 8,
-            padding: const EdgeInsets.all(16),
-            tabs: const [
-              GButton(
-                icon: Icons.home,
-                text: 'Home',
-              ),
-              GButton(
-                icon: Icons.done_all,
-                text: 'Todo',
-              ),
-              GButton(
-                icon: Icons.settings,
-                text: 'Settings',
-              ),
-            ],
-            selectedIndex: _selectedIndex,
-            onTabChange: (index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        ),
+        bottomNavigationBar: Container(
+          color: Theme.of(context).colorScheme.background,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+            child: GNav(
+              backgroundColor: Theme.of(context).colorScheme.background,
+              color: Colors.grey.shade500,
+              activeColor: Theme.of(context).colorScheme.primary,
+              tabBackgroundColor: Colors.grey.shade200,
+              gap: 8,
+              padding: const EdgeInsets.all(16),
+              tabs: const [
+                GButton(
+                  icon: Icons.home,
+                  text: 'Home',
+                ),
+                GButton(
+                  icon: Icons.done_all,
+                  text: 'Todo',
+                ),
+                GButton(
+                  icon: Icons.settings,
+                  text: 'Settings',
+                ),
+              ],
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+            ),
           ),
         ),
       ),

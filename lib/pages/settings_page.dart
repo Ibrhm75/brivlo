@@ -41,7 +41,14 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Settings")),
+      appBar: AppBar(
+          backgroundColor: Provider.of<ThemeProvider>(context).isDarkMode
+              ? Colors.black
+              : Colors.blue,
+          title: const Text(
+            "Settings",
+            style: TextStyle(color: Colors.white),
+          )),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -73,9 +80,25 @@ class _SettingsPageState extends State<SettingsPage> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _saveSettings,
-              child: const Text("Save Settings"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Provider.of<ThemeProvider>(context).isDarkMode
+                    ? Colors.black
+                    : Colors.blue,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: const Text("Save Settings",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  )),
             ),
-            const SizedBox(height: 30),
+            Expanded(
+              child: Container(),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

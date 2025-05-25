@@ -47,12 +47,6 @@ class _GreetingSectionState extends State<GreetingSection> {
     final isMorning = hour < 12;
     final isEvening = hour >= 18;
 
-    final greetingEmoji = isMorning
-        ? '🌅'
-        : isEvening
-            ? '🌙'
-            : '🌤️';
-
     final greetingText = isMorning
         ? 'Good Morning'
         : isEvening
@@ -60,7 +54,7 @@ class _GreetingSectionState extends State<GreetingSection> {
             : 'Good Afternoon';
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 16),
       child: Container(
         width: MediaQuery.sizeOf(context).width,
         padding: const EdgeInsets.all(24),
@@ -70,7 +64,7 @@ class _GreetingSectionState extends State<GreetingSection> {
                 ? [Colors.orange.shade100, Colors.pink.shade100]
                 : isEvening
                     ? [Colors.blue.shade500, Colors.deepPurple.shade400]
-                    : [Colors.green.shade400, Colors.cyan.shade100],
+                    : [Colors.green.shade400, Colors.cyan.shade200],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -89,14 +83,6 @@ class _GreetingSectionState extends State<GreetingSection> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                // Text(
-                //   greetingEmoji,
-                //   style: const TextStyle(fontSize: 40),
-                // )
-                //     .animate()
-                //     .shimmer(duration: 3.seconds)
-                //     .fadeIn(duration: 1200.ms),
-                // const SizedBox(width: 12),
                 Column(
                   children: [
                     Text(
@@ -129,7 +115,7 @@ class _GreetingSectionState extends State<GreetingSection> {
             Text(
               '“$quote”',
               style: const TextStyle(
-                fontSize: 16,
+                fontSize: 18,
                 fontStyle: FontStyle.italic,
                 color: Colors.black54,
               ),
